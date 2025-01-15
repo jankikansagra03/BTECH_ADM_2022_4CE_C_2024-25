@@ -21,7 +21,7 @@ if (isset($_POST['upload_multiple'])) {
         $type = $_FILES['fname']['type'][$i];
         // echo "<br>Temp Name: " . $tname;
         // echo "<br>File Name: " . $filename;
-        // echo "<br>Size: " . $size;
+        // echo "<br>Size: " . $size;  
         // echo "<br>Type: " . $type;
         if ($type == "image/jpg" || $type == "image/png" || $type == "image/jpeg") {
             if ($size <= 1024 * 1024) {
@@ -51,7 +51,7 @@ if (isset($_POST['upload_multiple'])) {
     echo "<br>";
     foreach ($uploaded_files as $k) {
 ?>
-        <img src="uploads/<?php echo $k; ?>" alt="" height="100px" width="100px">
+<img src="uploads/<?php echo $k; ?>" alt="" height="100px" width="100px">
 <?php
     }
 }
