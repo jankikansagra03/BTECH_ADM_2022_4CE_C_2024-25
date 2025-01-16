@@ -2,7 +2,7 @@
 <script src="js/bootstrap.js"></script>
 <div class="container">
     <form action="file_manager.php" method="post" enctype="multipart/form-data" style="margin:20px">
-        Select a file: <input type="file" name="f1" id="">
+        <label><b>Select a file: &nbsp; </b></label><input type="file" name="f1" id="">
         <br>
         <br>
         <input type="submit" value="Upload File" name="upload">
@@ -40,6 +40,7 @@
             <tr>
                 <th>SR.NO</th>
                 <th>File name</th>
+                <th>File Type</th>
                 <th>Download</th>
                 <th>Delete</th>
                 <th>View</th>
@@ -52,13 +53,25 @@
                     <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $file; ?></td>
+                        <td><?php echo $fileType = $file ? mime_content_type("file_manager/" . $file) : ''; ?></td>
                         <td><a href="file_manager/<?php echo $file; ?>"><input type="button" value="Download"
                                     class="btn btn-success" download></a>
                         </td>
+
                         <td><a href="delete_file.php?fname=<?php echo $file; ?>"><input type="button" value="Delete"
                                     class="btn btn-danger"></a></td>
-                        <td><a href="view_file.php?fname=<?php echo $file; ?>"><input type="button" value="View"
-                                    class="btn btn-warning"></a>
+
+                        <td><a href="view_file.php?fname=<?php echo $file; ?>"><input type="button" value="View" <?php
+                                                                                                                    if ($fileType == "image/png" || $fileType == "application/pdf" || $fileType == "image/jpg" || $fileType == "image/jpeg") {
+                                                                                                                        echo "none";
+                                                                                                                    } else {
+                                                                                                                        echo "style='cursor:none;'";
+                                                                                                                    } ?> ;
+                                    class=" btn btn-warning"></a>
+
+                            <?php
+
+                            ?>
                         </td>
                     </tr>
 
