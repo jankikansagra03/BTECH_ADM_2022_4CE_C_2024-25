@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function btn_click() {
+            alert("button clicked");
+        }
+
+        function find_sum() {
+            var num1 = document.getElementById('n1_1').value;
+            var num2 = document.getElementById('n2_2').value;
+            var num3 = parseFloat(num1) + parseFloat(num2);
+
+            // document.write("sum of "+ num1 + " and "+ num2 +" is "+ num3);
+            document.getElementById('ans').innerHTML = "sum of " + num1 + " and " + num2 + " is " + num3;
+        }
+
+        function find_sub() {
+            var num1 = document.getElementById('n1_1').value;
+            var num2 = document.getElementById('n2_2').value;
+            var num3 = parseFloat(num1) - parseFloat(num2);
+
+            // document.write("sum of "+ num1 + " and "+ num2 +" is "+ num3);
+            document.getElementById('ans').innerHTML = "subtraction of " + num1 + " and " + num2 + " is " + num3;
+        }
+
+        function find_mul() {
+            var num1 = document.getElementById('n1_1').value;
+            var num2 = document.getElementById('n2_2').value;
+            var num3 = parseFloat(num1) * parseFloat(num2);
+
+            // document.write("sum of "+ num1 + " and "+ num2 +" is "+ num3);
+            document.getElementById('ans').innerHTML = "Multiplication of " + num1 + " and " + num2 + " is " + num3;
+        }
+
+        function find_div() {
+            var num1 = document.getElementById('n1_1').value;
+            var num2 = document.getElementById('n2_2').value;
+            var num3 = parseFloat(num1) / parseFloat(num2);
+
+            // document.write("sum of "+ num1 + " and "+ num2 +" is "+ num3);
+            document.getElementById('ans').innerHTML = "Division of " + num1 + " and " + num2 + " is " + num3;
+        }
+
+        function check_number(num) {
+            // alert(num);
+            if (parseInt(num) % 2 == 0) {
+                document.getElementById('ck_num').innerHTML = num + " is an even number.";
+            } else {
+                document.getElementById('ck_num').innerHTML = num + " is an odd number.";
+            }
+        }
+        function generate_table(num) {
+            var i = 1; 
+            var x=""
+            for (i = 1; i <= 10; i++) {
+                var n1=num*i;
+              x =x + num + " * " + i + " = " + n1 + "<br>";
+            }
+            document.getElementById('tbl').innerHTML=x;
+        }
+    </script>
+</head>
+
+<body>
+    Enter number-1: <input type="text" name="n1" id="n1_1">
+    <br>
+    Enter number-2: <input type="text" name="n2" id="n2_2" />
+    <br>
+    <br>
+    <input type="button" value="Sum" onclick="find_sum()">
+    <input type="button" value="Subtract" onclick="find_sub()">
+    <input type="button" value="Multiply" onclick="find_mul()">
+    <input type="button" value="Divide" onclick="find_div()">
+
+    <p id="ans">Answer will be displayed here.</p>
+
+    <input type="text" name="" id="n1">
+    <br>
+    <br>
+    <input type="button" value="Generate Table" onclick="generate_table(parseInt(document.getElementById('n1').value))">
+    <input type="button" value="Check Even Number" onmouseenter="check_number(document.getElementById('n1').value)">
+    <p id="ck_num"></p>
+    <p id="tbl"></p>
+</body>
+
+</html>
