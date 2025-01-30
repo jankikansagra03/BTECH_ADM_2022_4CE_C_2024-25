@@ -34,54 +34,58 @@
     } else {
         $files = scandir("file_manager");
     ?>
-        <h1 class="text-white bg-primary p-2 text-center">Contents of your Directory</h1>
-        <br>
-        <table class="table table-responsive table-striped">
-            <tr>
-                <th>SR.NO</th>
-                <th>File name</th>
-                <th>File Type</th>
-                <th>Download</th>
-                <th>Delete</th>
-                <th>View</th>
-            </tr>
-            <?php
+    <h1 class="text-white bg-primary p-2 text-center">Contents of your Directory</h1>
+    <br>
+    <table class="table table-responsive table-striped">
+        <tr>
+            <th>SR.NO</th>
+            <th>File name</th>
+            <th>File Type</th>
+            <th>Download</th>
+            <th>Delete</th>
+            <th>View</th>
+        </tr>
+        <?php
             $i = 1;
             foreach ($files as $file) {
                 if ($file != "." && $file != "..") {
             ?>
-                    <tr>
-                        <td><?php echo $i; ?></td>
-                        <td><?php echo $file; ?></td>
-                        <td><?php echo $fileType = $file ? mime_content_type("file_manager/" . $file) : ''; ?></td>
-                        <td><a href="file_manager/<?php echo $file; ?>"><input type="button" value="Download"
-                                    class="btn btn-success" download></a>
-                        </td>
+        <tr>
+            <td><?php echo $i; ?></td>
+            <td><?php echo $file; ?></td>
+            <td><?php echo $fileType = $file ? mime_content_type("file_manager/" . $file) : ''; ?></td>
+            <td><a href="file_manager/<?php echo $file; ?>"><input type="button" value="Download"
+                        class="btn btn-success" download></a>
+            </td>
 
-                        <td><a href="delete_file.php?fname=<?php echo $file; ?>"><input type="button" value="Delete"
-                                    class="btn btn-danger"></a></td>
-
-                        <td><a href="view_file.php?fname=<?php echo $file; ?>"><input type="button" value="View" <?php
-                                                                                                                    if ($fileType == "image/png" || $fileType == "application/pdf" || $fileType == "image/jpg" || $fileType == "image/jpeg") {
-                                                                                                                        echo "none";
-                                                                                                                    } else {
-                                                                                                                        echo "style='cursor:none;'";
-                                                                                                                    } ?> ;
-                                    class=" btn btn-warning"></a>
-
-                            <?php
-
-                            ?>
-                        </td>
-                    </tr>
-
+            <td>
+                <a href="delete_file.php?fname=<?php echo $file; ?>">
+                    <input type="button" value="Delete" class="btn btn-danger">
+                </a>
+            </td>
             <?php
+                            if ($fileType == "image/jpeg" || $fileType == "image/png" || $fileType == "image/jpg" || $fileType == "application/pdf") {
+                            ?>
+            <a href="view_file.php?fname=<?php echo $file; ?>">
+                <input type="button" value="View" class="btn btn-primary">
+            </a>
+            <?php
+                            } else {
+                            ?>
+            <label for="" style="color:red">Preview not available</label>
+            <?php
+                            }
+                            ?>
+            </td>
+        </tr>
+
+        <?php
                     $i++;
                 }
             }
 
             ?>
-        </table>
+    </table>
 </div>
 <?php
     }

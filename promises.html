@@ -1,0 +1,30 @@
+<script>
+  // Simulate an order process with a promise
+  function placeOrder(order) {
+    console.log(`Order placed: ${order}`);
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const isOrderSuccessful = Math.random() > 0.5; // Simulate success or failure
+
+        if (isOrderSuccessful) {
+          resolve(`Your order for ${order} is confirmed!`);
+        } else {
+          reject(`Sorry, we couldn't process your order for ${order}.`);
+        }
+      }, 2000); // Simulate 2 seconds delay
+    });
+  }
+
+  // Consuming the promise
+  placeOrder("Pizza")
+    .then((confirmation) => {
+      console.log(confirmation); // If order is successful
+    })
+    .catch((error) => {
+      console.error(error); // If order fails
+    })
+    .finally(() => {
+      console.log("Thank you for using our service!"); // Always runs
+    });
+</script>

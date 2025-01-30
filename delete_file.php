@@ -1,23 +1,22 @@
 <?php
 if (isset($_GET['fname'])) {
-    $fname = $_GET['fname'];
-    // echo $fname;
-    if (unlink("file_manager/" . $fname)) {
+    $filename = $_GET['fname'];
+    echo $filename;;
+    if (unlink("file_manager/" . $filename)) {
 ?>
         <script>
-            alert("File Deleted Successfully");
+            alert("file deleted successfully");
         </script>
     <?php
     } else {
     ?>
         <script>
-            alert("Error: Error deleting file");
+            alert("Error deleting file");
         </script>
-    <?php
-    }
-    ?>
-    <script>
-        window.location.href = "file_manager.php";
-    </script>
 <?php
+    }
 }
+?>
+<script>
+    window.location.href = "file_manager.php";
+</script>
