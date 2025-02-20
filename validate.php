@@ -11,6 +11,18 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="js/additional-methods.js"></script>
+    <style>
+        option {
+            background: white;
+            color: black;
+        }
+
+        option:checked,
+        option:hover {
+            background: red !important;
+            color: white !important;
+        }
+    </style>
 
 
 </head>
@@ -113,6 +125,13 @@
     <div class="container mt-3">
         <h2>Stacked form</h2>
         <form action="/action_page.php" id="form1" mathod="post" enctype="multipart/form-data">
+            <select name="" id="" class="form-control">
+                <option value="11">11</option>
+                <option value="11">11</option>
+                <option value="11">11</option>
+                <option value="11">11</option>
+                <option value="11">11</option>
+            </select>
             <div class="mb-3 mt-3">
                 <label for="nm1">Fullname:</label>
                 <input type="text" class="form-control" id="nm1" placeholder="Enter name" name="fn">
