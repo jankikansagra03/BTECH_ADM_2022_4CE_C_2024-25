@@ -13,24 +13,7 @@ require_once("connection.php");
 </head>
 
 <body>
-    <?php
-    if (isset($_COOKIE['success'])) {
-    ?>
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            <strong>Success!</strong> <?php echo $_COOKIE['success']; ?>.
-        </div>
-    <?php
-    }
-    if (isset($_COOKIE['error'])) {
-    ?>
-        <div class="alert alert-danger alert-dismissible">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            <strong>Error!</strong> <?php echo $_COOKIE['error']; ?>.
-        </div>
-    <?php
-    }
-    ?>
+   
     <div class="container">
         <form action="registration_form.php" method="post" enctype="multipart/form-data">
             <div class="mb-3 mt-3">
